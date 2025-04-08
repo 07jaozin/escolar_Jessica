@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-app.config['UPLOAD_FOLDER'] = 'static/img'
+app.config['UPLOAD_FOLDER'] = 'projeto/static/img'
 app.secret_key="curso_flask"
 app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900)
 
@@ -38,8 +38,8 @@ def principal():
   
 @app.route('/form')
 def form():
-   #if session not in('adm'):
-   #   return('/formLogar')
+   if session not in('adm'):
+     return('/')
    return render_template("form.html")   
 @app.route('/adiciona_materia', methods = ['POST'])
 def adiciona():
@@ -84,17 +84,23 @@ def matematica():
 
 @app.route('/excluir/<int:id>')
 def excluir(id):
+   if 'adm' not in session:
+      return redirect('/')
    excluido = Materias.query.filter_by(id = id).first()
    db.session.delete(excluido)
    db.session.commit()
    return redirect('/')
 @app.route('/formEdit/<int:id>')
 def formEdit(id):
+   if 'adm' not in session:
+      return redirect('/')
    item = Materias.query.filter_by(id = id).first()
    return render_template("editar.html", item = item)
 
 @app.route('/editando/<int:id>', methods = ['POST'])
 def editando(id):
+   if 'adm' not in session:
+      return redirect('/')
    print(id)
    editando = Materias.query.get(id)
    titulo = request.form.get('titulo-editar')
@@ -121,6 +127,7 @@ def log_adm():
    if nomeSemEspacos == 'desen' and senhaSemEspacos == 'desen':
       session['adm'] = True
       return redirect('/')
+   return redirect('/log')
    
 @app.route('/logout')
 def logout():
