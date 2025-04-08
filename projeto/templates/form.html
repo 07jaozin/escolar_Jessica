@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Matéria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css')}}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Formulário de Matéria</h2>
+        <form action="/adiciona_materia" method="POST" enctype="multipart/form-data">
+            <!-- Campo de texto para título -->
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required placeholder="Digite o título">
+
+            <!-- Campo de seleção para matéria -->
+            <label for="materia">Matéria:</label>
+            <select id="materia" name="materia" required>
+                <option value="fisica">Física</option>
+                <option value="matematica">Matemática</option>
+                <option value="educacao_financeira">Educação Financeira</option>
+            </select>
+
+            <!-- Campo de texto para link -->
+            <label for="link">Link:</label>
+            <input type="url" id="link" name="link" required placeholder="Digite o link">
+
+            <!-- Campo de texto para nome do link -->
+            <label for="nome_link">Nome do Link:</label>
+            <input type="text" id="nome_link" name="nome_link" required placeholder="Digite o nome do link">
+
+            <!-- Campo de upload de arquivo (foto) -->
+            <label for="foto">Selecione uma Foto:</label>
+            <input type="file" id="foto" name="foto" accept="image/*" required>
+
+            <!-- Botão para enviar o formulário -->
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+</body>
+</html>

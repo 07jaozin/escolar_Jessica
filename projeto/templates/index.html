@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <nav class="nav container">
+                <h2 class="nav_logo"><i class='bx bxs-graduation'></i></h2>
+          
+
+                <ul class="menu_items">
+                    <img src="images/times.svg" alt="time" id="menu_toggle">
+                    <li><a href="#inicio" class="nav_link">Inicio</a></li>
+                    <li><a href="#disciplinas" class="nav_link">Disciplinas</a></li>
+                    <li><a href="#" class="nav_link"><i class='bx bxl-whatsapp'></i></a></li>
+                    {% if session['adm'] %}
+                        <li><a href="/form" class="nav_link">Adicionar</a></li>
+                    {% endif %}
+                    
+                </ul>
+                <img src="{{ url_for('static', filename='images/bars.svg')}}" alt="time" id="menu_toggle">
+
+            </nav>
+        </header>
+
+        <section class="hero" id="inicio">
+            <div class="row">
+                <div class="column">
+                    <h2>Curso<br> de apredizagem</h2>
+                    <p>
+                        O site disponibiliza materiais educativos em slides e PDFs nas áreas de matemática, física e educação financeira, permitindo aprendizado no próprio ritmo com conteúdos claros e objetivos.
+                    </p>
+
+                   
+                </div>
+                <div class="column">
+                    <img src="{{ url_for('static', filename='images/hero.png')}}" alt="hero imagem" class="hero_img">
+                </div>
+            </div>
+        </section>
+
+        <section class="category section" id="disciplinas">
+          
+            <h2 class="section__title">
+                Selecione sua <br>
+                Materia
+            </h2>
+
+            <div class="category__container container grid" >
+                <div class="category__card" id="Matematica">
+                    <img src="{{ url_for('static', filename='images/Matemática .png')}}" alt="category image" class="category__img">
+                    <h3 class="category__title">Matemática</h3>
+                    <p class="category__description">
+                        Clique aqui para ter acesso a todo material de matemática 
+
+                    </p>
+
+                    
+                </div>
+
+                <div class="category__card" id="financeira">
+                    <img src="{{ url_for('static', filename='images/Financeira.png')}}" alt="category image" class="category__img">
+                    <h3 class="category__title">Educação <br>
+                    financeira</h3>
+                    <p class="category__description">
+                        Clique aqui para ter acesso a todo material de educação financeira
+                    </p>
+
+                  
+                </div>
+
+                <div class="category__card" id="fisica">
+                    <img src="{{ url_for('static', filename='images/Física.png')}}" id="kit" alt="category image" class="category__img">
+                    <h3 class="category__title">Fisica</h3>
+                    <p class="category__description">
+                        Clique aqui para ter acesso a todo material de Fisica
+                    </p>
+
+                  
+                </div>
+            </div>
+        </section>
+           
+       
+    </main>
+    <script src="{{ url_for('static', filename='main.js')}}"></script>
+</body>
+</html>

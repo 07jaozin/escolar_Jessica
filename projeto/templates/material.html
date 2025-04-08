@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <nav class="nav container">
+                <h2 class="nav_logo"><i class='bx bxs-graduation'></i></h2>
+          
+
+                <ul class="menu_items">
+                    <img src="{{ url_for('static', filename='images/times.svg')}}" alt="time" id="menu_toggle">
+                    <li><a href="/" class="nav_link">Voltar</a></li>
+                    
+                    
+                    <li><a href="#" class="nav_link"><i class='bx bxl-whatsapp'></i></a></li>
+                    {% if session['adm'] %}
+                        <li><a href="/form" class="nav_link">Adicionar</a></li>
+                        <li><a href="/logout" class="nav_link">sair adm</a></li>
+                    {% endif %}
+                    
+                </ul>
+                <img src="{{ url_for('static', filename='images/bars.svg')}}" alt="time" id="menu_toggle">
+
+            </nav>
+        </header>
+    {% if materias %}
+      {% for materia in materias %}
+       
+             <section class="material" id="{{ materia.id }}">
+                  <div class="titulo">
+                      <h1>{{ materia.titulo }}</h1>
+                      <i class='bx bx-seta bx-chevron-right'></i>
+                  </div>
+              
+                  <div class="aulas">
+                      <img src="{{materia.foto}}" alt="img" class="img-aula">
+                      <br>
+                      <a href="{{ materia.link }}" class="link-aula">{{ materia.nome_link }}</a>
+
+                      <div class="subtitulo">
+
+                          <h3><span>{{ materia.materia }}</span>  -   <span>{{ materia.titulo }}</span></h3>
+
+                      </div>
+                  </div>
+             </section>
+             <br>
+             {% if session['adm'] %}
+                <a href="/excluir/{{ materia.id }}">excluir</a>
+                <a href="/formEdit/{{ materia.id }}">editar</a>
+            {% endif %}
+
+
+       {% endfor %}
+    {% else %}
+    <center>
+        <br>
+        <br>
+        <br>
+        <p style="color: aliceblue;">Sem material</p>
+    </center>
+    {% endif %}
+     
+       
+    </main>
+    <script src="{{ url_for('static', filename='main.js')}}"></script>
+</body>
+</html>
