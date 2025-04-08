@@ -9,8 +9,8 @@ import datetime
 app=Flask(__name__)
 
 
-db_path = os.path.join(os.getcwd(), 'site.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+#db_path = os.path.join(os.getcwd(), 'site.db')f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 app.config['UPLOAD_FOLDER'] = 'static/img'
@@ -127,3 +127,5 @@ def logout():
       return redirect('/')
     session.pop('adm', default=None)
     return redirect('/')
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=8080)
