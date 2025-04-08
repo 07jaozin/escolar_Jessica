@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-app.config['UPLOAD_FOLDER'] = 'projeto/static/img'
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'projeto/static/img')
 app.secret_key="curso_flask"
 app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900)
 
@@ -38,8 +38,8 @@ def principal():
   
 @app.route('/form')
 def form():
-   if session not in('adm'):
-     return('/')
+   #if session not in('adm'):
+    # return redirect('/')
    return render_template("form.html")   
 @app.route('/adiciona_materia', methods = ['POST'])
 def adiciona():
