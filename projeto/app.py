@@ -11,6 +11,7 @@ app=Flask(__name__)
 
 #db_path = os.path.join(os.getcwd(), 'site.db')f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 app.config['UPLOAD_FOLDER'] = 'static/img'
