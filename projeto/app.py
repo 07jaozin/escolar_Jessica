@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), '/static/img')
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), '/static/')
 app.secret_key="curso_flask"
 app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900)
 
