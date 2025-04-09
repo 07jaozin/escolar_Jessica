@@ -53,11 +53,12 @@ def adiciona():
    nome_link = request.form.get('nome_link')
    materia = request.form.get('materia')
    foto = request.files['foto']
-   caminho_imagem = os.path.join(app.config['UPLOAD_FOLDER'], foto.filename)
-   nome_foto = foto.filename
-   print(caminho_imagem)
-   foto.save(caminho_imagem)
-   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = nome_foto )
+   if foto:
+      foto.save(os.path.join("static/img", foto.filename))
+      foto_caminho = os.path.join("static/img", foto.filename)
+   print(foto_caminho)
+  
+   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = foto_caminho )
    db.session.add(novo_material)
    db.session.commit()
    return redirect('/')
