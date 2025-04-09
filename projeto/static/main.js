@@ -3,11 +3,13 @@ const header = document.querySelector('header');
 const a = document.querySelectorAll('.nav_link');
 const aula = document.querySelectorAll('.aulas');
 const seta =document.querySelectorAll('.bx-seta');
+const material =document.querySelectorAll('.material');
 
 seta.forEach((seta, index) => {
     seta.addEventListener("click", () => {
         
         aula[index].classList.toggle("visivel");
+        material[index].classList.toggle("visivel");
         const valorClass = seta.className;
         console.log(valorClass)
         if(valorClass === 'bx bx-seta bx-chevron-right'){

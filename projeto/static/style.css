@@ -241,6 +241,19 @@ body{
     
     
 }
+.material{
+    background: #292828;
+    border-radius: 50px;
+    border: 2px solid #00aaf3;
+    height: 25%;
+    margin-top: 10%;
+    animation: showaula .5s linear 1 forwards;
+    
+    padding: 17px 25px;
+    overflow: hidden;
+    
+    
+}
 .material .titulo{
     background: #292828;
     z-index: 1;
@@ -273,17 +286,23 @@ body{
     height: auto;
     margin-top: 10%;
     z-index: -1;
-    animation: showaula .5s linear 1 forwards;
-    filter: blur(20px);
-    opacity: 0;
 }
 @keyframes showaula {
-    to{
-        filter: blur(0);
-        opacity: 1;
-       top: -4%;
+    0%{
+        height: 25%;
       
     }
+    50%{
+        height: 50%;
+      
+    }
+   
+    
+    100%{
+        height: auto;
+      
+    }
+    
 }
 
 .aulas .img-aula{
