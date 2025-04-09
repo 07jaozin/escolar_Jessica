@@ -54,8 +54,8 @@
              </section>
              <br>
              {% if session['adm'] %}
-                <a href="/excluir/{{ materia.id }}">excluir</a>
-                <a href="/formEdit/{{ materia.id }}">editar</a>
+                <a id="excluir" class="btn_modificador" href="/excluir/{{ materia.id }}">excluir</a>
+                <a id="editar" class="btn_modificador" href="/formEdit/{{ materia.id }}">editar</a>
             {% endif %}
 
 

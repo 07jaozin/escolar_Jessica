@@ -306,6 +306,22 @@ body{
     margin-bottom: 30px;
     color: #fff;
 }
+.btn_modificador{
+  display: inline-flexbox;
+  padding: .45rem 1.6rem; 
+  border-radius: 4rem;
+  cursor: pointer;
+  transition: background  .3s;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+#editar{
+    background-color: #00aaf3;
+}
+#excluir{
+    background-color: #e53935;
+}
 
 
 
