@@ -54,8 +54,8 @@ def adiciona():
    materia = request.form.get('materia')
    foto = request.files['foto']
    if foto:
-      foto.save(os.path.join("static/img", foto.filename))
-      foto_caminho = os.path.join("static/img", foto.filename)
+      foto.save(os.path.join("static/images", foto.filename))
+      foto_caminho = os.path.join("static/images", foto.filename)
    print(foto_caminho)
   
    novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = foto_caminho )
