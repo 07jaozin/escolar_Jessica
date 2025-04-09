@@ -41,7 +41,7 @@
                   </div>
               
                   <div class="aulas">
-                      <img src="{{ url_for('static', filename=materia.foto)}}" alt="img" class="img-aula">
+                      <img src="{{ url_for('static', filename='img/'+{{ materia.foto }})}}" alt="img" class="img-aula">
                       <br>
                       <a href="{{ materia.link }}" class="link-aula">{{ materia.nome_link }}</a>
 

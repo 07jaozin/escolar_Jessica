@@ -57,7 +57,7 @@ def adiciona():
    nome_foto = foto.filename
    print(caminho_imagem)
    foto.save(caminho_imagem)
-   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = f"img/{nome_foto}" )
+   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = nome_foto )
    db.session.add(novo_material)
    db.session.commit()
    return redirect('/')
