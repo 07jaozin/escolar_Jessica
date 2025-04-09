@@ -10,7 +10,7 @@
 
     <div class="form-container">
         <h2>Formulário de Matéria</h2>
-        <form action="/adiciona_materia" method="POST" enctype="multipart/form-data">
+        <form action="/adiciona_materia" method="POST">
             <!-- Campo de texto para título -->
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" required placeholder="Digite o título">
@@ -31,9 +31,42 @@
             <label for="nome_link">Nome do Link:</label>
             <input type="text" id="nome_link" name="nome_link" required placeholder="Digite o nome do link">
 
-            <!-- Campo de upload de arquivo (foto) -->
+            <!-- Campo de seleção de foto (radio buttons) -->
             <label for="foto">Selecione uma Foto:</label>
-            <input type="file" id="foto" name="foto" accept="image/*" required>
+            <div class="foto-options">
+                <label>
+                    <input type="radio" name="foto" value="fisica.webp" required>
+                    <img src="{{ url_for('static', filename='images/fisica.webp')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="fisica2.jpg" required>
+                    <img src="{{ url_for('static', filename='images/fisica2.jpg')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="financeiro1.jpg" required>
+                    <img src="{{ url_for('static', filename='images/financeiro1.jpg')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="financeiro2.png" required>
+                    <img src="{{ url_for('static', filename='images/financeiro2.png')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="matematica1.avif" required>
+                    <img src="{{ url_for('static', filename='images/matematica1.avif')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="matematica2.jpg" required>
+                    <img src="{{ url_for('static', filename='images/matematica2.jpg')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="exercicio.png" required>
+                    <img src="{{ url_for('static', filename='images/exercicio.png')}}" alt="" width="150px" height="150x">
+                </label>
+                <label>
+                    <input type="radio" name="foto" value="exercicio2.jpg" required>
+                    <img src="{{ url_for('static', filename='images/exercicio2.jpg')}}" alt="" width="150px" height="150x">
+                </label>
+            </div>
 
             <!-- Botão para enviar o formulário -->
             <button type="submit">Enviar</button>

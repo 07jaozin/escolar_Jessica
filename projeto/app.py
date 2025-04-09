@@ -52,13 +52,10 @@ def adiciona():
    link = request.form.get('link')
    nome_link = request.form.get('nome_link')
    materia = request.form.get('materia')
-   foto = request.files['foto']
-   if foto:
-      foto.save(os.path.join("static/images", foto.filename))
-      foto_caminho = os.path.join("static/images", foto.filename)
-   print(foto_caminho)
+   foto = request.form.get('foto')
+   print(foto)
   
-   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = foto_caminho )
+   novo_material = Materias( titulo = titulo, materia = materia, link = link, nome_link = nome_link, foto = foto )
    db.session.add(novo_material)
    db.session.commit()
    return redirect('/')
