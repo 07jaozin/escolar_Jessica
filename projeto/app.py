@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-UPLOAD_FOLDER = os.path.join(os.getcwd(), 'instance/static/img')
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static/img')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.secret_key="curso_flask"
