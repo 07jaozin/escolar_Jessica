@@ -17,6 +17,9 @@ db = SQLAlchemy(app)
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static/img')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'])
+
 app.secret_key="curso_flask"
 app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900)
 
